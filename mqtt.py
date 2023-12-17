@@ -2,12 +2,6 @@ import paho.mqtt.client as paho
 from paho import mqtt
 # import mqtt_callbacks as callbacks
 from paho.mqtt.client import connack_string
-from enum import Enum
-
-class Permission(Enum):
-    Sub = 1
-    Pub = 2
-    Sub_Pub = 3
 
 class MQTT:
 
@@ -66,8 +60,7 @@ class MQTT:
         else:
             self.client.on_subscribe = on_subscribe      
 
-    def set_credentials(self, permission : Permission, username : str, password : str):
-        self.permission = permission
+    def set_credentials(self, username : str, password : str):
         self.client.username_pw_set(username, password)
 
     def connect(self):
@@ -79,21 +72,18 @@ class MQTT:
     def loop_forever(self):
         self.client.loop_forever()
 
-    def set_callback(self):
-        self.set_on_connect_callback()
-        self.set_on_disconnect_callback()
+    def set_callback(self, on_connect: bool = False, on_disconnect: bool = False, on_message: bool = False, on_publish: bool = False, on_subscribe: bool = False):
         
-        if (self.permission == Permission.Sub):
-            self.set_on_subscribe_callback()
+        if (on_connect):
+            self.set_on_connect_callback()
+        if (on_disconnect):
+            self.set_on_disconnect_callback()
+        if (on_message):
             self.set_on_message_callback()
-
-        elif (self.permission == Permission.Pub):
+        if (on_publish):
             self.set_on_publish_callback()
-
-        elif (self.permission == Permission.Sub_Pub):
+        if (on_subscribe):
             self.set_on_subscribe_callback()
-            self.set_on_publish_callback()
-            self.set_on_message_callback()
 
     def publish(self, topic, payload, qos = 1):
         self.client.publish(topic, payload, qos)

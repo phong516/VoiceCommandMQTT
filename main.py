@@ -1,36 +1,17 @@
-import numpy as np
+import VoiceCommand as vc
+import mqtt
 
-from tensorflow.keras import models
-import tensorflow as tf
-from IPython import display
+#Khởi tạo phần nhận lệnh bằng giọng nói
+ai = vc.VoiceComamnd('saved_model')
 
-from recording_helper import record_audio, terminate
-from tf_helper import preprocess_audiobuffer
+#Khởi tạo phần gửi lệnh điều khiển qua MQTT
+mqtt_user = mqtt.MQTT(client_id = "user0")
+mqtt_user.set_credentials(username = "user0", password = "User0123456")
+mqtt_user.set_callback(on_connect = True, on_message = True, on_publish = True)
+mqtt_user.connect()
+mqtt_user.loop_start()
 
-# !! Modify this in the correct order
-commands = ['Cham', 'Dung', 'Nhanh', 'Lui', 'Phai', 'Tien', 'Trai']
-
-loaded_model = models.load_model("saved_model")
-
-def predict_mic():
-    audio = record_audio()    
-    spec = preprocess_audiobuffer(audio)
-    prediction = loaded_model(spec)
-    max_value = np.max(tf.nn.softmax(prediction[0]))
-    
-    label_pred = np.argmax(prediction, axis=1)
-    command = commands[label_pred[0]]
-    # print("Predicted label:", command) if max_value > 0.7 else print("No command detected")
-    print("Predicted label:", command)
-    print("Accuracy: ", max_value)
-    return command
-
-if __name__ == "__main__":
-    # from turtle_helper import move_turtle
-    while True:
-        per = input("Press enter to predict")
-        command = predict_mic()
-        # move_turtle(command)
-        # if command == "stop":
-        #     terminate()
-        #     break
+while True:
+    input("Press Enter to send command")
+    command = ai.PredictMic()
+    mqtt_user.publish(topic="user0/test", payload=command, qos=1)
