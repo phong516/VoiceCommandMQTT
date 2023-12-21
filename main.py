@@ -1,36 +1,27 @@
+from PyQt5.QtWidgets import (QApplication)
 import VoiceCommand as vc
-import mqtt
-import GUI_test
+from gui import Window
+from mqtt import MQTT
 
-class main():
+class main(Window):
     def __init__(self):
-        #Khởi tạo MQTT
-        self.mqtt_user = mqtt.MQTT(client_id = "user0")
+        super().__init__()
+        self.ai = vc.VoiceComamnd('saved_model')
+        self.mqtt_user = MQTT(client_id = "user0")
         self.mqtt_user.set_credentials(username = "user0", password = "User0123456")
         self.mqtt_user.set_callback(on_connect = True, on_message = True, on_publish = True)
         self.mqtt_user.connect()
         self.mqtt_user.loop_start()
-
-        #Khởi taọ AI
-        self.ai = vc.VoiceComamnd('saved_model')
-        self.Command = None
     
-        #Khởi tạo GUI
-        self.gui = GUI_test.Ui_MainWindow()
-        self.gui.setup()
-        self.gui.setButtonEvent(self.gui.pushButton, self.PredictEvent)
-        self.gui.setButtonEvent(self.gui.pushButton_2, self.PublishCommand)
-        self.gui.show()
-
-    def PredictEvent(self):
+    def slot_PredictMic(self):
         self.Command = self.ai.PredictMic()
-        self.gui.displayText(self.Command)
+        self.textEdit.setText(self.Command)
 
-    def PublishCommand(self, command : str = None):
-        if command == None:
-            command = self.Command
-        self.mqtt_user.publish(topic = "user0/test", payload = command, qos = 1)
-
-
-if __name__ == "__main__":
-    main()
+    def slot_Publish(self):
+        self.mqtt_user.publish(topic="user0/test", payload=self.Command, qos=1)
+        
+if __name__ == '__main__':
+    app = QApplication([])
+    window = main()
+    window.show()
+    app.exec_()

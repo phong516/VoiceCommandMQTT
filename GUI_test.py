@@ -9,30 +9,63 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import sys
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(896, 567)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(130, 50, 121, 111))
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(120, 370, 151, 101))
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
-        self.textEdit.setGeometry(QtCore.QRect(70, 200, 251, 151))
+        self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
+        self.layoutWidget.setGeometry(QtCore.QRect(380, 70, 481, 341))
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.gridLayout = QtWidgets.QGridLayout(self.layoutWidget)
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout.setObjectName("gridLayout")
+        self.pushButton_Nhanh = QtWidgets.QPushButton(self.layoutWidget)
+        self.pushButton_Nhanh.setObjectName("pushButton_Nhanh")
+        self.gridLayout.addWidget(self.pushButton_Nhanh, 0, 2, 1, 1)
+        self.pushButton_Phai = QtWidgets.QPushButton(self.layoutWidget)
+        self.pushButton_Phai.setObjectName("pushButton_Phai")
+        self.gridLayout.addWidget(self.pushButton_Phai, 1, 2, 1, 1)
+        self.pushButton_Lui = QtWidgets.QPushButton(self.layoutWidget)
+        self.pushButton_Lui.setObjectName("pushButton_Lui")
+        self.gridLayout.addWidget(self.pushButton_Lui, 2, 1, 1, 1)
+        self.pushButton_Trai = QtWidgets.QPushButton(self.layoutWidget)
+        self.pushButton_Trai.setObjectName("pushButton_Trai")
+        self.gridLayout.addWidget(self.pushButton_Trai, 1, 0, 1, 1)
+        self.pushButton_Dung = QtWidgets.QPushButton(self.layoutWidget)
+        self.pushButton_Dung.setObjectName("pushButton_Dung")
+        self.gridLayout.addWidget(self.pushButton_Dung, 1, 1, 1, 1)
+        self.pushButton_Cham = QtWidgets.QPushButton(self.layoutWidget)
+        self.pushButton_Cham.setObjectName("pushButton_Cham")
+        self.gridLayout.addWidget(self.pushButton_Cham, 2, 2, 1, 1)
+        self.pushButton_Tien = QtWidgets.QPushButton(self.layoutWidget)
+        self.pushButton_Tien.setObjectName("pushButton_Tien")
+        self.gridLayout.addWidget(self.pushButton_Tien, 0, 1, 1, 1)
+        self.layoutWidget1 = QtWidgets.QWidget(self.centralwidget)
+        self.layoutWidget1.setGeometry(QtCore.QRect(80, 90, 264, 281))
+        self.layoutWidget1.setObjectName("layoutWidget1")
+        self.formLayout = QtWidgets.QFormLayout(self.layoutWidget1)
+        self.formLayout.setContentsMargins(0, 0, 0, 0)
+        self.formLayout.setObjectName("formLayout")
+        self.pushButton_GhiAm = QtWidgets.QPushButton(self.layoutWidget1)
+        self.pushButton_GhiAm.setObjectName("pushButton_GhiAm")
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.SpanningRole, self.pushButton_GhiAm)
+        self.label = QtWidgets.QLabel(self.layoutWidget1)
+        self.label.setObjectName("label")
+        self.formLayout.setWidget(1, QtWidgets.QFormLayout.SpanningRole, self.label)
+        self.textEdit = QtWidgets.QTextEdit(self.layoutWidget1)
         self.textEdit.setReadOnly(True)
         self.textEdit.setObjectName("textEdit")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(150, 180, 101, 17))
-        self.label.setObjectName("label")
+        self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.textEdit)
+        self.pushButton_Gui = QtWidgets.QPushButton(self.layoutWidget1)
+        self.pushButton_Gui.setObjectName("pushButton_Gui")
+        self.formLayout.setWidget(3, QtWidgets.QFormLayout.SpanningRole, self.pushButton_Gui)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 896, 22))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -40,26 +73,37 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
+        self.pushButton_GhiAm.clicked.connect(MainWindow.slot_PredictMic) # type: ignore
+        self.pushButton_Gui.clicked.connect(MainWindow.slot_Publish) # type: ignore
+        self.pushButton_Nhanh.clicked.connect(MainWindow.slot_Command) # type: ignore
+        self.pushButton_Tien.clicked.connect(MainWindow.slot_Command) # type: ignore
+        self.pushButton_Trai.clicked.connect(MainWindow.slot_Command) # type: ignore
+        self.pushButton_Dung.clicked.connect(MainWindow.slot_Command) # type: ignore
+        self.pushButton_Phai.clicked.connect(MainWindow.slot_Command) # type: ignore
+        self.pushButton_Cham.clicked.connect(MainWindow.slot_Command) # type: ignore
+        self.pushButton_Lui.clicked.connect(MainWindow.slot_Command) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton.setText(_translate("MainWindow", "Ghi âm"))
-        self.pushButton_2.setText(_translate("MainWindow", "Gửi"))
-        self.label.setText(_translate("MainWindow", "Lệnh đã nhận"))
-        
-    def setButtonEvent(self, button, event):
-        button.clicked.connect(event)
+        self.pushButton_Nhanh.setText(_translate("MainWindow", "Nhanh"))
+        self.pushButton_Phai.setText(_translate("MainWindow", "Phải"))
+        self.pushButton_Lui.setText(_translate("MainWindow", "Lùi"))
+        self.pushButton_Trai.setText(_translate("MainWindow", "Trái"))
+        self.pushButton_Dung.setText(_translate("MainWindow", "Dừng"))
+        self.pushButton_Cham.setText(_translate("MainWindow", "Chậm"))
+        self.pushButton_Tien.setText(_translate("MainWindow", "Tiến"))
+        self.pushButton_GhiAm.setText(_translate("MainWindow", "Ghi âm"))
+        self.label.setText(_translate("MainWindow", "                        Lệnh đã nhận"))
+        self.pushButton_Gui.setText(_translate("MainWindow", "Gửi"))
 
-    def displayText(self, text):
-        self.textEdit.setText(text)
 
-    def setup(self):
-        self.app = QtWidgets.QApplication(sys.argv)
-        self.MainWindow = QtWidgets.QMainWindow()
-        self.setupUi(self.MainWindow)
-
-    def show(self):
-        self.MainWindow.show()
-        sys.exit(self.app.exec_())
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())

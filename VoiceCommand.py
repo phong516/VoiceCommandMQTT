@@ -7,7 +7,7 @@ import pyaudio
 class VoiceComamnd:
     def __init__(self, model : any):
         self.model = models.load_model(model)
-        self.commands = ['Cham', 'Dung', 'Nhanh', 'Lui', 'Phai', 'Tien', 'Trai']
+        self.commands = ['Chậm', 'Dừng', 'Nhanh', 'Lùi', 'Phải', 'Tiến', 'Trái']
         self.FRAMES_PER_BUFFER = 3200
         self.FORMAT = pyaudio.paInt16
         self.CHANNELS = 1
