@@ -11,6 +11,7 @@ class MQTT:
         self.broker = broker
         self.port = port
         self.keepalive = keepalive
+        self.msg = ""
 
     def __on_connect(self, client, userdata, flags, rc):
         print("Connected to client %s with result code %s" % (client._client_id, connack_string(rc)))
@@ -20,9 +21,8 @@ class MQTT:
 
     def __on_message(self, client, userdata, message):
         print("Received message %s from client %s" % (message.payload, client._client_id))
-        command = message.payload.decode("utf-8")
-        if (command == "Go"):
-            print("Đã nhận Go")
+        self.msg = message.payload.decode("utf-8")
+        
 
     def __on_publish(self, client, userdata, mid):
         print("Published message to client %s with message id %s" % (client._client_id, mid))
