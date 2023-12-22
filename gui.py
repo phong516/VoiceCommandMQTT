@@ -1,4 +1,5 @@
 from PyQt5.QtGui import QKeyEvent
+from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (QApplication, QMainWindow)
 
 from GUI_test import Ui_MainWindow
@@ -37,6 +38,7 @@ class Window(QMainWindow, Ui_MainWindow):
 
     def keyPressEvent(self, a0: QKeyEvent):
         KeyPressed = a0.text()
+        print(a0.key())
         if KeyPressed == '8':
             self.Command = "Tiến"
         elif KeyPressed == '2':
@@ -51,6 +53,8 @@ class Window(QMainWindow, Ui_MainWindow):
             self.Command = "Nhanh"
         elif KeyPressed == '3':
             self.Command = "Chậm"
+        elif a0.key() == 16777220:
+            self.pushButton_Gui.click()
 
         self.textEdit.setText(self.Command)
         
