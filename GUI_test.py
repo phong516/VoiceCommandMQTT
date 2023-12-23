@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'GUI_test.ui'
+# Form implementation generated from reading ui file 'gui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -12,98 +12,177 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(896, 567)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setObjectName("centralwidget")
-        self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget.setGeometry(QtCore.QRect(380, 70, 481, 341))
-        self.layoutWidget.setObjectName("layoutWidget")
-        self.gridLayout = QtWidgets.QGridLayout(self.layoutWidget)
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout.setObjectName("gridLayout")
-        self.pushButton_Nhanh = QtWidgets.QPushButton(self.layoutWidget)
-        self.pushButton_Nhanh.setObjectName("pushButton_Nhanh")
-        self.gridLayout.addWidget(self.pushButton_Nhanh, 0, 2, 1, 1)
-        self.pushButton_Phai = QtWidgets.QPushButton(self.layoutWidget)
-        self.pushButton_Phai.setObjectName("pushButton_Phai")
-        self.gridLayout.addWidget(self.pushButton_Phai, 1, 2, 1, 1)
-        self.pushButton_Lui = QtWidgets.QPushButton(self.layoutWidget)
-        self.pushButton_Lui.setObjectName("pushButton_Lui")
-        self.gridLayout.addWidget(self.pushButton_Lui, 2, 1, 1, 1)
-        self.pushButton_Trai = QtWidgets.QPushButton(self.layoutWidget)
-        self.pushButton_Trai.setObjectName("pushButton_Trai")
-        self.gridLayout.addWidget(self.pushButton_Trai, 1, 0, 1, 1)
-        self.pushButton_Dung = QtWidgets.QPushButton(self.layoutWidget)
-        self.pushButton_Dung.setObjectName("pushButton_Dung")
-        self.gridLayout.addWidget(self.pushButton_Dung, 1, 1, 1, 1)
-        self.pushButton_Cham = QtWidgets.QPushButton(self.layoutWidget)
-        self.pushButton_Cham.setObjectName("pushButton_Cham")
-        self.gridLayout.addWidget(self.pushButton_Cham, 2, 2, 1, 1)
-        self.pushButton_Tien = QtWidgets.QPushButton(self.layoutWidget)
-        self.pushButton_Tien.setObjectName("pushButton_Tien")
-        self.gridLayout.addWidget(self.pushButton_Tien, 0, 1, 1, 1)
-        self.layoutWidget1 = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget1.setGeometry(QtCore.QRect(80, 90, 264, 281))
-        self.layoutWidget1.setObjectName("layoutWidget1")
-        self.formLayout = QtWidgets.QFormLayout(self.layoutWidget1)
-        self.formLayout.setContentsMargins(0, 0, 0, 0)
-        self.formLayout.setObjectName("formLayout")
-        self.pushButton_GhiAm = QtWidgets.QPushButton(self.layoutWidget1)
-        self.pushButton_GhiAm.setObjectName("pushButton_GhiAm")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.SpanningRole, self.pushButton_GhiAm)
-        self.label = QtWidgets.QLabel(self.layoutWidget1)
-        self.label.setObjectName("label")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.SpanningRole, self.label)
-        self.textEdit = QtWidgets.QTextEdit(self.layoutWidget1)
+    def setupUi(self, Form):
+        Form.setObjectName("Form")
+        Form.resize(970, 600)
+        Form.setStyleSheet("background-color: rgb(0, 0, 0);")
+        self.textEdit = QtWidgets.QTextEdit(Form)
+        self.textEdit.setGeometry(QtCore.QRect(30, 170, 231, 171))
+        self.textEdit.setStyleSheet("color: rgb(0, 255, 255);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
         self.textEdit.setReadOnly(True)
         self.textEdit.setObjectName("textEdit")
-        self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.textEdit)
-        self.pushButton_Gui = QtWidgets.QPushButton(self.layoutWidget1)
+        self.codingLabel = QtWidgets.QLabel(Form)
+        self.codingLabel.setGeometry(QtCore.QRect(550, 20, 211, 121))
+        self.codingLabel.setText("")
+        self.codingLabel.setPixmap(QtGui.QPixmap("coding.gif"))
+        self.codingLabel.setScaledContents(True)
+        self.codingLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.codingLabel.setObjectName("codingLabel")
+        self.HTPLabel = QtWidgets.QLabel(Form)
+        self.HTPLabel.setGeometry(QtCore.QRect(30, 20, 481, 121))
+        self.HTPLabel.setText("")
+        self.HTPLabel.setPixmap(QtGui.QPixmap("logo.png"))
+        self.HTPLabel.setScaledContents(True)
+        self.HTPLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.HTPLabel.setObjectName("HTPLabel")
+        self.exitButton = QtWidgets.QPushButton(Form)
+        self.exitButton.setGeometry(QtCore.QRect(30, 350, 231, 41))
+        self.exitButton.setStyleSheet("font: 75 10pt \"MS Shell Dlg 2\";\n"
+"color: rgb(244, 112, 255);\n"
+"background-color: rgb(44, 252, 255);")
+        self.exitButton.setObjectName("exitButton")
+        self.importButton = QtWidgets.QPushButton(Form)
+        self.importButton.setGeometry(QtCore.QRect(550, 300, 211, 41))
+        self.importButton.setStyleSheet("font: 75 10pt \"MS Shell Dlg 2\";\n"
+"color: rgb(244, 112, 255);\n"
+"background-color: rgb(44, 252, 255);")
+        self.importButton.setObjectName("importButton")
+        self.backgroundLabel = QtWidgets.QLabel(Form)
+        self.backgroundLabel.setGeometry(QtCore.QRect(0, 409, 967, 190))
+        self.backgroundLabel.setText("")
+        self.backgroundLabel.setPixmap(QtGui.QPixmap("Bgr.gif"))
+        self.backgroundLabel.setScaledContents(True)
+        self.backgroundLabel.setObjectName("backgroundLabel")
+        self.arcLabel = QtWidgets.QLabel(Form)
+        self.arcLabel.setGeometry(QtCore.QRect(300, 170, 211, 211))
+        self.arcLabel.setText("")
+        self.arcLabel.setPixmap(QtGui.QPixmap("A.gif"))
+        self.arcLabel.setScaledContents(True)
+        self.arcLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.arcLabel.setObjectName("arcLabel")
+        self.recordButton = QtWidgets.QPushButton(Form)
+        self.recordButton.setGeometry(QtCore.QRect(550, 160, 211, 131))
+        self.recordButton.setStyleSheet("font: 75 10pt \"MS Shell Dlg 2\";\n"
+"color: rgb(244, 112, 255);\n"
+"background-color: rgb(44, 252, 255);")
+        self.recordButton.setText("")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("listening.gif"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.recordButton.setIcon(icon)
+        self.recordButton.setIconSize(QtCore.QSize(150, 150))
+        self.recordButton.setObjectName("recordButton")
+        self.pushButton_Tien = QtWidgets.QPushButton(Form)
+        self.pushButton_Tien.setGeometry(QtCore.QRect(854, 200, 41, 41))
+        self.pushButton_Tien.setStyleSheet("font: 75 10pt \"MS Shell Dlg 2\";\n"
+"color: rgb(244, 112, 255);\n"
+"background-color: rgb(44, 252, 255);")
+        self.pushButton_Tien.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("up.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_Tien.setIcon(icon1)
+        self.pushButton_Tien.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_Tien.setObjectName("pushButton_Tien")
+        self.pushButton_Lui = QtWidgets.QPushButton(Form)
+        self.pushButton_Lui.setGeometry(QtCore.QRect(854, 300, 41, 41))
+        self.pushButton_Lui.setFocusPolicy(QtCore.Qt.StrongFocus)
+        self.pushButton_Lui.setStyleSheet("font: 75 10pt \"MS Shell Dlg 2\";\n"
+"color: rgb(244, 112, 255);\n"
+"background-color: rgb(44, 252, 255);")
+        self.pushButton_Lui.setText("")
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("down.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_Lui.setIcon(icon2)
+        self.pushButton_Lui.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_Lui.setObjectName("pushButton_Lui")
+        self.pushButton_Trai = QtWidgets.QPushButton(Form)
+        self.pushButton_Trai.setGeometry(QtCore.QRect(810, 250, 41, 41))
+        self.pushButton_Trai.setStyleSheet("font: 75 10pt \"MS Shell Dlg 2\";\n"
+"color: rgb(244, 112, 255);\n"
+"background-color: rgb(44, 252, 255);")
+        self.pushButton_Trai.setText("")
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap("left.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_Trai.setIcon(icon3)
+        self.pushButton_Trai.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_Trai.setObjectName("pushButton_Trai")
+        self.pushButton_Phai = QtWidgets.QPushButton(Form)
+        self.pushButton_Phai.setGeometry(QtCore.QRect(900, 250, 41, 41))
+        self.pushButton_Phai.setStyleSheet("font: 75 10pt \"MS Shell Dlg 2\";\n"
+"color: rgb(244, 112, 255);\n"
+"background-color: rgb(44, 252, 255);")
+        self.pushButton_Phai.setText("")
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap("right.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_Phai.setIcon(icon4)
+        self.pushButton_Phai.setIconSize(QtCore.QSize(25, 25))
+        self.pushButton_Phai.setObjectName("pushButton_Phai")
+        self.pushButton_Cham = QtWidgets.QPushButton(Form)
+        self.pushButton_Cham.setGeometry(QtCore.QRect(790, 160, 41, 41))
+        self.pushButton_Cham.setStyleSheet("font: 75 8pt \"MS Shell Dlg 2\";\n"
+"background-color: rgb(255, 182, 92);\n"
+"color: rgb(85, 0, 0);\n"
+"")
+        self.pushButton_Cham.setObjectName("pushButton_Cham")
+        self.pushButton_Nhanh = QtWidgets.QPushButton(Form)
+        self.pushButton_Nhanh.setGeometry(QtCore.QRect(920, 160, 41, 41))
+        self.pushButton_Nhanh.setStyleSheet("background-color: rgb(32, 255, 17);\n"
+"font: 75 8pt \"MS Shell Dlg 2\";\n"
+"color: rgb(85, 0, 0);\n"
+"font: 75 8pt \"MS Shell Dlg 2\";")
+        self.pushButton_Nhanh.setObjectName("pushButton_Nhanh")
+        self.pushButton_Dung = QtWidgets.QPushButton(Form)
+        self.pushButton_Dung.setGeometry(QtCore.QRect(820, 350, 111, 41))
+        self.pushButton_Dung.setStyleSheet("background-color: rgb(0, 255, 255);\n"
+"color: rgb(85, 0, 0);\n"
+"font: 75 9pt \"MS Shell Dlg 2\";")
+        self.pushButton_Dung.setObjectName("pushButton_Dung")
+        self.happyLabel = QtWidgets.QLabel(Form)
+        self.happyLabel.setGeometry(QtCore.QRect(790, 20, 171, 121))
+        self.happyLabel.setText("")
+        self.happyLabel.setPixmap(QtGui.QPixmap("happy.gif"))
+        self.happyLabel.setScaledContents(True)
+        self.happyLabel.setObjectName("happyLabel")
+        self.pushButton_Gui = QtWidgets.QPushButton(Form)
+        self.pushButton_Gui.setGeometry(QtCore.QRect(550, 350, 211, 41))
+        self.pushButton_Gui.setStyleSheet("font: 75 10pt \"MS Shell Dlg 2\";\n"
+"color: rgb(244, 112, 255);\n"
+"background-color: rgb(44, 252, 255);")
         self.pushButton_Gui.setObjectName("pushButton_Gui")
-        self.formLayout.setWidget(3, QtWidgets.QFormLayout.SpanningRole, self.pushButton_Gui)
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 896, 22))
-        self.menubar.setObjectName("menubar")
-        MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
-        self.pushButton_GhiAm.clicked.connect(MainWindow.slot_PredictMic) # type: ignore
-        self.pushButton_Gui.clicked.connect(MainWindow.slot_Publish) # type: ignore
-        self.pushButton_Nhanh.clicked.connect(MainWindow.slot_Command) # type: ignore
-        self.pushButton_Tien.clicked.connect(MainWindow.slot_Command) # type: ignore
-        self.pushButton_Trai.clicked.connect(MainWindow.slot_Command) # type: ignore
-        self.pushButton_Dung.clicked.connect(MainWindow.slot_Command) # type: ignore
-        self.pushButton_Phai.clicked.connect(MainWindow.slot_Command) # type: ignore
-        self.pushButton_Cham.clicked.connect(MainWindow.slot_Command) # type: ignore
-        self.pushButton_Lui.clicked.connect(MainWindow.slot_Command) # type: ignore
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(Form)
+        self.pushButton_Cham.clicked.connect(Form.slot_Command) # type: ignore
+        self.pushButton_Nhanh.clicked.connect(Form.slot_Command) # type: ignore
+        self.pushButton_Tien.clicked.connect(Form.slot_Command) # type: ignore
+        self.pushButton_Trai.clicked.connect(Form.slot_Command) # type: ignore
+        self.pushButton_Lui.clicked.connect(Form.slot_Command) # type: ignore
+        self.pushButton_Phai.clicked.connect(Form.slot_Command) # type: ignore
+        self.pushButton_Dung.clicked.connect(Form.slot_Command) # type: ignore
+        self.recordButton.clicked.connect(Form.slot_PredictMic) # type: ignore
+        self.pushButton_Gui.clicked.connect(Form.slot_Publish) # type: ignore
+        QtCore.QMetaObject.connectSlotsByName(Form)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton_Nhanh.setText(_translate("MainWindow", "Nhanh"))
-        self.pushButton_Phai.setText(_translate("MainWindow", "Phải"))
-        self.pushButton_Lui.setText(_translate("MainWindow", "Lùi"))
-        self.pushButton_Trai.setText(_translate("MainWindow", "Trái"))
-        self.pushButton_Dung.setText(_translate("MainWindow", "Dừng"))
-        self.pushButton_Cham.setText(_translate("MainWindow", "Chậm"))
-        self.pushButton_Tien.setText(_translate("MainWindow", "Tiến"))
-        self.pushButton_GhiAm.setText(_translate("MainWindow", "Ghi âm"))
-        self.label.setText(_translate("MainWindow", "                        Lệnh đã nhận"))
-        self.pushButton_Gui.setText(_translate("MainWindow", "Gửi"))
+        Form.setWindowTitle(_translate("Form", "Form"))
+        self.textEdit.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
+        self.exitButton.setText(_translate("Form", "EXIT"))
+        self.importButton.setText(_translate("Form", "IMPORT"))
+        self.pushButton_Cham.setText(_translate("Form", "LOW"))
+        self.pushButton_Nhanh.setText(_translate("Form", "FAST"))
+        self.pushButton_Dung.setText(_translate("Form", "STOP"))
+        self.pushButton_Gui.setText(_translate("Form", "TRANSMIT"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    Form = QtWidgets.QWidget()
+    ui = Ui_Form()
+    ui.setupUi(Form)
+    Form.show()
     sys.exit(app.exec_())
